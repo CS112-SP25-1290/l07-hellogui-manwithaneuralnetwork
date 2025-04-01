@@ -22,19 +22,35 @@ public class HelloApplication extends Application  { //inheriting core functiona
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setTitle("Hello GUI: Your Name");
+        stage.setTitle("Hello GUI: Alex");
         StackPane pane = new StackPane();
+
+        AnchorPane anchorPane = new AnchorPane();
+
+        Label label = new Label("Hello GUI World");
+        Label label2 = new Label("Hello I am label 2");
+        Button button = new Button("Click me!");
+        Button button2 = new Button("No, click me!");
+
+        AnchorPane.setTopAnchor(label, 5.0);
+        AnchorPane.setLeftAnchor(label, 10.0);
+        AnchorPane.setTopAnchor(label2, 5.0);
+        AnchorPane.setRightAnchor(label2, 10.0);
+        AnchorPane.setTopAnchor(button, 140.0);
+        AnchorPane.setLeftAnchor(button, 115.0);
+        AnchorPane.setTopAnchor(button2, 200.0);
+        AnchorPane.setLeftAnchor(button2, 106.0);
+
+        anchorPane.getChildren().add(label);
+        anchorPane.getChildren().add(label2);
+        anchorPane.getChildren().add(button);
+        anchorPane.getChildren().add(button2);
+
+        pane.getChildren().add(anchorPane);
+
         Scene scene = new Scene(pane, 300, 300);
         stage.setScene(scene);
         stage.show();
-        Label label = new Label("Hello GUI World");
-        pane.getChildren().add(label);
-        AnchorPane anchorPane = new AnchorPane();
-        AnchorPane.setBottomAnchor(label, 0.0);
-        AnchorPane.setRightAnchor(label, 0.0);
-        anchorPane.getChildren().add(label);
-        pane.getChildren().add(anchorPane);
-
     }
 
     // TODO: follow steps 2-9 in README.md to create a start method
