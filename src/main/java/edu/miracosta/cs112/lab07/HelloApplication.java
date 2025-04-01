@@ -1,6 +1,7 @@
 package edu.miracosta.cs112.lab07;//package name here depending on your IDE
 
 import javafx.application.Application;  //abstract class used for JavaFX GUI's
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;              //class for GUI window
 import javafx.scene.Scene;              //class for specific view in GUI window
 import javafx.scene.layout.VBox;        //class for layout pane, organized top-to-bottom
@@ -16,6 +17,15 @@ public class HelloApplication extends Application  { //inheriting core functiona
     /*** DRIVER main ***/
     public static void main(String[] args) {
         launch(args); //method from Application class, must be called to setup javafx application
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        stage.setTitle("Hello GUI: Your Name");
+        StackPane pane = new StackPane();
+        Scene scene = new Scene(pane, 300, 300);
+        stage.setScene(scene);
+        stage.show();
     }
 
     // TODO: follow steps 2-9 in README.md to create a start method
