@@ -20,6 +20,8 @@ public class HelloApplication extends Application implements EventHandler<Action
     Button button;
     Button button2;
 
+    int clicks;
+
     /*** DRIVER main ***/
     public static void main(String[] args) {
         launch(args); //method from Application class, must be called to setup javafx application
@@ -29,15 +31,17 @@ public class HelloApplication extends Application implements EventHandler<Action
     public void start(Stage stage) throws Exception {
         stage.setTitle("Hello GUI: Alex");
         StackPane pane = new StackPane();
+        clicks = 0;
 
         AnchorPane anchorPane = new AnchorPane();
 
-        label = new Label("Hello GUI World");
-        label2 = new Label("Hello I am label 2");
+        label = new Label("Hello I am label 1");
+        label2 = new Label("Hello I will count clicks");
         button = new Button("Click me!");
         button2 = new Button("No, click me!");
 
         button.setOnAction(this);
+        button2.setOnAction(this);
 
         AnchorPane.setTopAnchor(label, 5.0);
         AnchorPane.setLeftAnchor(label, 10.0);
@@ -64,6 +68,10 @@ public class HelloApplication extends Application implements EventHandler<Action
     public void handle(ActionEvent event) {
         if(event.getSource() == button){
             label.setText("Secret text revealed!");
+        }
+        else if(event.getSource() == button2){
+            clicks++;
+            label2.setText(""+clicks);
         }
     }
 }
